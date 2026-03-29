@@ -1,0 +1,31 @@
+El Problema:
+
+Una institución educativa desea mejorar el rendimiento académico identificando el estilo de aprendizaje predominante de cada estudiante y generando estrategias personalizadas.
+
+Se recibe un DataFrame de pandas con las columnas:
+- "estudiante_id" (int)
+- "tipo_actividad" (str: lectura, practica, video)
+
+Debes crear una función llamada recomendar_estrategia_aprendizaje(df) que:
+
+1. Agrupe los datos por estudiante_id.
+2. Determine el tipo de actividad más frecuente de cada estudiante.
+3. Asigne una recomendación pedagógica:
+   - lectura → "reforzar con ejercicios prácticos"
+   - practica → "reforzar con teoría"
+   - video → "combinar con actividades escritas"
+
+La función debe recibir:
+- df: pandas.DataFrame
+
+La función debe retornar:
+- dict[int, str] donde:
+  - clave → estudiante_id
+  - valor → recomendación
+
+Aplicación:
+Permite generar estrategias de aprendizaje personalizadas para mejorar el desempeño estudiantil.
+
+
+
+

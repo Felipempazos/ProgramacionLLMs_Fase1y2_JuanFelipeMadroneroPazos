@@ -1,0 +1,31 @@
+El Problema:
+
+En un sistema de monitoreo vehicular, algunos sensores de velocidad presentan fallas, por lo que es necesario reconstruir la velocidad a partir de datos de posición y tiempo.
+
+Se recibe un DataFrame de pandas con las columnas:
+- "tiempo" (float)
+- "posicion" (float)
+- "velocidad" (float, puede contener NaN)
+
+Debes crear una función llamada reconstruir_velocidad_faltante(df) que:
+
+1. Calcule la velocidad estimada usando la diferencia de posición entre tiempos consecutivos.
+2. Reemplace los valores nulos en "velocidad" con la velocidad estimada.
+3. Calcule el error absoluto entre la velocidad estimada y la registrada (cuando exista).
+4. Identifique los índices donde el error sea mayor al promedio de errores.
+
+La función debe recibir:
+- df: pandas.DataFrame
+
+La función debe retornar:
+- dict con:
+  - "df_corregido": pandas.DataFrame
+  - "indices_error": numpy.ndarray de enteros
+
+Aplicación:
+Permite corregir datos incompletos y detectar mediciones inconsistentes en sistemas de monitoreo vehicular.
+
+
+
+
+

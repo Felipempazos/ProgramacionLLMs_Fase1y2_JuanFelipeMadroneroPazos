@@ -1,0 +1,36 @@
+El Problema:
+
+Una institución educativa desea analizar el hábito lector de los estudiantes y detectar aquellos casos donde el comportamiento no coincide con su clasificación.
+
+Se recibe un DataFrame de pandas con las columnas:
+- "num_paginas_leidas" (float)
+- "frecuencia_lectura" (float)
+- "nivel_comprension" (float)
+- "habito" (int: 0 o 1)
+
+Debes crear una función llamada analizar_habito_lector(df) que:
+
+1. Separe las variables (X) de la columna "habito".
+2. Escale los datos usando StandardScaler.
+3. Entrene un modelo LogisticRegression.
+4. Obtenga las predicciones del modelo.
+5. Compare las predicciones con los valores reales.
+6. Identifique los índices donde el modelo se equivoca.
+
+La función debe recibir:
+- df: pandas.DataFrame
+
+La función debe retornar:
+- numpy.ndarray de enteros con los índices de los estudiantes mal clasificados
+
+Aplicación:
+Permite detectar estudiantes cuyo comportamiento lector no sigue patrones esperados, facilitando intervenciones pedagógicas.
+
+
+
+
+
+
+
+
+
