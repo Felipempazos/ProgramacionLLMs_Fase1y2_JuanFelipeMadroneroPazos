@@ -30,7 +30,6 @@ def generar_caso_de_uso_analizar_perfiles_musicales():
         "df": df.copy()
     }
 
-
     df_calc = df.copy()
 
     X = df_calc[["tiempo_pop", "tiempo_rock", "tiempo_reggaeton"]]
@@ -53,6 +52,8 @@ def generar_caso_de_uso_analizar_perfiles_musicales():
         max_val = promedios.max()
         min_val = promedios.min()
 
+        # Umbral 20: si la diferencia entre el género más y menos escuchado
+        # supera 20 minutos, el cluster es "especializado"; si no, "diverso"
         if max_val - min_val > 20:
             etiquetas_cluster[cluster_id] = "especializado"
         else:
@@ -61,7 +62,7 @@ def generar_caso_de_uso_analizar_perfiles_musicales():
     resultado = {}
 
     for _, row in df_calc.iterrows():
-        resultado[row["usuario_id"]] = etiquetas_cluster[row["cluster"]]
+        resultado[int(row["usuario_id"])] = etiquetas_cluster[row["cluster"]]
 
     output_data = resultado
 

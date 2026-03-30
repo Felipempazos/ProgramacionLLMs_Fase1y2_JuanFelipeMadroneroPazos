@@ -10,6 +10,7 @@ Debes crear una función llamada recomendar_estrategia_aprendizaje(df) que:
 
 1. Agrupe los datos por estudiante_id.
 2. Determine el tipo de actividad más frecuente de cada estudiante.
+   - En caso de empate, usa la actividad que aparezca primero en orden alfabético.
 3. Asigne una recomendación pedagógica:
    - lectura → "reforzar con ejercicios prácticos"
    - practica → "reforzar con teoría"
@@ -25,7 +26,3 @@ La función debe retornar:
 
 Aplicación:
 Permite generar estrategias de aprendizaje personalizadas para mejorar el desempeño estudiantil.
-
-
-
-

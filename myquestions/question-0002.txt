@@ -10,22 +10,20 @@ Se recibe un DataFrame de pandas con las columnas:
 Debes crear una función llamada reconstruir_velocidad_faltante(df) que:
 
 1. Calcule la velocidad estimada usando la diferencia de posición entre tiempos consecutivos.
-2. Reemplace los valores nulos en "velocidad" con la velocidad estimada.
-3. Calcule el error absoluto entre la velocidad estimada y la registrada (cuando exista).
-4. Identifique los índices donde el error sea mayor al promedio de errores.
+   - El primer valor de la velocidad estimada debe ser 0.
+2. Reemplace los valores nulos en "velocidad" con la velocidad estimada correspondiente.
+3. Calcule el error absoluto entre la velocidad estimada y la velocidad originalmente registrada.
+   - En los índices donde la velocidad original era NaN, el error se considera 0.
+4. Identifique los índices donde el error sea estrictamente mayor al promedio de todos los errores
+   (incluyendo los ceros de los índices con NaN original).
 
 La función debe recibir:
 - df: pandas.DataFrame
 
 La función debe retornar:
 - dict con:
-  - "df_corregido": pandas.DataFrame
+  - "df_corregido": pandas.DataFrame con los NaN reemplazados
   - "indices_error": numpy.ndarray de enteros
 
 Aplicación:
 Permite corregir datos incompletos y detectar mediciones inconsistentes en sistemas de monitoreo vehicular.
-
-
-
-
-

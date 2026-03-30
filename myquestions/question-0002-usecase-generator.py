@@ -35,19 +35,21 @@ def generar_caso_de_uso_reconstruir_velocidad_faltante():
         "df": df.copy()
     }
 
-    # ---------------------------
-    # OUTPUT esperado
-    # ---------------------------
     df_calc = df.copy()
 
+    # Velocidad estimada por diferencia de posición; primer valor = 0
     velocidad_estimada = df_calc["posicion"].diff()
     velocidad_estimada.iloc[0] = 0
 
+    # Rellenar NaN con la velocidad estimada
     df_calc["velocidad"] = df_calc["velocidad"].fillna(velocidad_estimada)
 
+    # Error respecto a la velocidad ORIGINAL (antes del fillna)
+    # donde la velocidad original era NaN, el error se trata como 0
     error = np.abs(velocidad_estimada - df["velocidad"])
     error = error.fillna(0)
 
+    # Índices cuyo error supera el promedio (promedio incluye los ceros)
     umbral = error.mean()
     indices_error = np.where(error > umbral)[0]
 

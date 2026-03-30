@@ -1,6 +1,6 @@
 El Problema:
 
-Una plataforma de streaming desea agrupar usuarios según sus hábitos de escucha para mejorar sus recomendaciones musicales.
+Una plataforma de streaming desea agrupar usuarios según sus hábitos de escucha y entender el tipo de comportamiento musical de cada grupo.
 
 Se recibe un DataFrame de pandas con las columnas:
 - "usuario_id" (int)
@@ -8,30 +8,25 @@ Se recibe un DataFrame de pandas con las columnas:
 - "tiempo_rock" (float)
 - "tiempo_reggaeton" (float)
 
-Debes crear una función llamada segmentar_usuarios_musicales(df) que:
+Debes crear una función llamada analizar_perfiles_musicales(df) que:
 
-1. Seleccione las columnas numéricas de tiempo de escucha.
+1. Seleccione las columnas numéricas de tiempo de escucha:
+   ["tiempo_pop", "tiempo_rock", "tiempo_reggaeton"]
 2. Escale los datos usando StandardScaler.
-3. Aplique KMeans con 2 clusters.
-4. Asigne a cada usuario un grupo según su comportamiento.
+3. Aplique KMeans con 2 clusters (n_clusters=2, random_state=0, n_init=10).
+4. Para cada cluster, calcule el promedio de tiempo de escucha por género.
+5. Determine el tipo de perfil del cluster comparando el valor máximo y mínimo de esos promedios:
+   - "especializado" → si (promedio_max - promedio_min) > 20
+   - "diverso"       → si (promedio_max - promedio_min) <= 20
+6. Asigne a cada usuario la etiqueta de su cluster correspondiente.
 
 La función debe recibir:
 - df: pandas.DataFrame
 
 La función debe retornar:
-- dict[int, int] donde:
-  - clave → usuario_id
-  - valor → cluster asignado (0 o 1)
+- dict[int, str] donde:
+  - clave → usuario_id (int)
+  - valor → tipo de perfil ("especializado" o "diverso")
 
 Aplicación:
-Permite segmentar usuarios según sus preferencias musicales para personalizar recomendaciones.
-
-
-
-
-
-
-
-
-
-
+Permite entender el comportamiento musical de los usuarios y mejorar sistemas de recomendación personalizados.

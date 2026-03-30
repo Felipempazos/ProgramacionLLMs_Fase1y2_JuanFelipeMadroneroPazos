@@ -26,7 +26,6 @@ def generar_caso_de_uso_analizar_confianza_lector():
 
     df = pd.DataFrame(data)
 
-    # asegurar ambas clases (evita error en LogisticRegression)
     df.loc[0, "habito"] = 0
     df.loc[1, "habito"] = 1
 
@@ -34,9 +33,7 @@ def generar_caso_de_uso_analizar_confianza_lector():
         "df": df.copy()
     }
 
-    # ---------------------------
-    # OUTPUT esperado
-    # ---------------------------
+
     df_calc = df.copy()
 
     X = df_calc[["num_paginas_leidas", "frecuencia_lectura", "nivel_comprension"]]

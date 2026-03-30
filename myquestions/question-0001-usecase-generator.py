@@ -31,6 +31,8 @@ def generar_caso_de_uso_recomendar_estrategia_aprendizaje():
     resultado = {}
 
     for estudiante_id, grupo in df.groupby("estudiante_id"):
+        # mode()[0] devuelve la primera moda en orden alfabético en caso de empate
+        # (lectura < practica < video), consistente con lo documentado en el enunciado
         actividad_dominante = grupo["tipo_actividad"].mode()[0]
 
         if actividad_dominante == "lectura":
@@ -45,5 +47,3 @@ def generar_caso_de_uso_recomendar_estrategia_aprendizaje():
     output_data = resultado
 
     return input_data, output_data
-    
-    
