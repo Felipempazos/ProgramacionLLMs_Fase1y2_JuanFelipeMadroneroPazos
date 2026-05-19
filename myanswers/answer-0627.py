@@ -1,6 +1,9 @@
 import pandas as pd
 
-def normalizar_datos_legados(datos):
+def normalizar_datos_legados(datos=None, registros=None):
+    if datos is None:
+        datos = {'registros': registros}
+    
     df = datos['registros'].copy()
     
     df['fecha_raw'] = pd.to_datetime(df['fecha_raw'], format='%Y%m%d')
